@@ -49,6 +49,9 @@ class ContentItem(models.Model):
                 contents = contents[:50] + '...'
             return contents or ugettext('[ EMPTY ]')  # TODO: find out why ugettext_lazy doesn't work here
 
+    def __str__(self):
+        return self.__unicode__()
+
     @classmethod
     def get_add_url(cls):
         named_url = 'fiber_admin:%s_%s_add' % (cls._meta.app_label, cls._meta.object_name.lower())
@@ -104,6 +107,9 @@ class Page(MPTTModel):
 
     def __unicode__(self):
         return self.title
+
+    def __str__(self):
+        return self.__unicode__()
 
     def save(self, *args, **kwargs):
         if self.id:
@@ -289,6 +295,9 @@ class Image(models.Model):
     def __unicode__(self):
         return self.image.name
 
+    def __str__(self):
+        return self.__unicode__()
+
     def save(self, *args, **kwargs):
         # delete existing Image(s) with the same image.name - TODO: warn about this?
         existing_images = Image.objects.filter(image=os.path.join(IMAGES_DIR, self.image.name))
@@ -341,6 +350,9 @@ class File(models.Model):
 
     def __unicode__(self):
         return self.file.name
+
+    def __str__(self):
+        return self.__unicode__()
 
     def save(self, *args, **kwargs):
         # delete existing File(s) with the same file.name - TODO: warn about this?
