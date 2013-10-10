@@ -22,6 +22,7 @@ branches:
   only:
     - master
     - dev
+    - python3
 matrix:
   exclude:
     - python: 3.3
