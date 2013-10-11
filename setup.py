@@ -21,9 +21,13 @@ setup(
     install_requires=[
         'Pillow==2.2.1',
         'django-mptt==0.6',
-        'django_compressor==1.3',
+        'django_compressor==1.3.dev',
         'djangorestframework==2.3.8',
         'easy-thumbnails==1.4',
+    ],
+
+    dependency_links=[
+        'https://github.com/jezdez/django_compressor/archive/develop.tar.gz#egg=django-compressor-1.3.dev',
     ],
 
     description='Django Fiber - a simple, user-friendly CMS for all your Django projects',
